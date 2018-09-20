@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<nav class="tabs grouping">
+		<ul>
+			<li {% ifequal tab_id '1' %} class="active" {% endifequal %} data-tab="tab1">New complaint</li>
+			<li {% ifequal tab_id '2' %} class="active" {% endifequal %} data-tab="tab2">Old complaints</li>
+		</ul>	
+	</nav>
+	<br>
+	<div class="tab-content {% ifequal tab_id '1' %}current{% endifequal %}" id="tab1">
+	<p class="heading1"> Register new complaint</p>
+	<form action="{% url 'add_grievance' %}" method="POST">
+		{% csrf_token %}
+		<br>
+		<span class="inputfield">
+			<label for="cname">Name : </label>
+			<input class="readonly" type="text" name="cname" value="{{ user.student.name }}" readonly>
+		</span><br>
+		<span class="inputfield">
+			<label for="dept">Department : </label>
+			<input class="readonly" type="text" name="dept" value="{{ user.student.department }}" readonly>
+		</span><br>
+		<span class="inputfield">
+			<label for="hostel">Resident of : </label>
+			<input class="readonly" type="text" name="hostel" value="{{ user.student.hostel }}" readonly>
+		</span><br>
+		<span class="inputfield">
+			<label for="description">Your grievance : </label><br>
+			<textarea name="description" placeholder="Write your grievance here" cols="80" rows="10"></textarea>
+		</span><br>
+		<!-- <input id="categories" type="text" name="categories" value="" hidden>
+		<span class="inputfield">
+			<label> Select categories : </label>
+			<div id="list_of_categories" class="select categories">				
+				<span data-category="Mess">Mess</span>
+				<span data-category="Maintainance">Maintainance</span>
+				<span data-category="Internet">Internet</span>
+				<span data-category="Academic"> Academic</span>
+				
+			</div>
+		</span><br> -->
+		<br>
+		<input type="submit" class="btn-go" value="Register grievance">
+	</form>
+	</div>
+	<div class="tab-content {% ifequal tab_id '2' %}current{% endifequal %}" id="tab2">
+                <p class="heading1"> Status of Complaints</p>
+		<ul class="grievances">
+			{% for gr in list_of_grievances %}
+			<li class="grievance grouping">
+				<div class="details">
+					<p class="date">Dated : {{ gr.get_date }}</p><br>
+					<p class="grievance-text">{{ gr.description }}</p><br>
+					<label>Categories: </label>
+					<div class="categories">
+						{% for category in gr.categories.all %}
+						<span class="selected"> {{ category.name }} </span>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="status">
+					<p class="center">
+						<br>
+						{%  if gr.status == C %}
+						<img src="{% static 'img/resolved_tag.png' %}">
+						{% else %}
+						<p><strong>{% if gr.status == N %}PENDING
+						{% elif gr.status == R %}READ
+						{% endif %}</strong></p>
+						<br>
+						<form action="{% url 'resolve' gr.id %}" method='POST'>	
+						{% csrf_token %}
+						<input type="submit" class="btn-go" value="Mark as &#10 RESOLVED"></input>
+						</form>
+						{% endif %}
+						<br>
+					</p>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	<script src="{% static 'js/jquery-3.2.1.js' %}" type="text/javascript"></script>	
+	<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+{% endblock %}

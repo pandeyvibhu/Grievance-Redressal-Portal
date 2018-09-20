@@ -1,0 +1,101 @@
+{% extends 'main/base.html'%}
+{% load static %}
+{% block content %}
+		<p class="heading1"> Grievances </p>
+		<br><br>
+		<ul class="grievances">
+			<li class="grievance grouping">
+				<div class="details">
+					<div class="nametag grouping">
+						<img class="display-img" src="{% static 'img/download.png' %}">
+						<p>Name : <span class="name">Lorem ipsum.</span>
+						<br>Department : <span class="dept">Lorem ipsum dolor.</span>
+						<br>Hostel: <span class="hostel">Lorem ipsum dolor.</span></p>
+					</div>
+					<p class="date">Dated : --/--/----</p><br>
+					<p class="grievance-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis a fuga praesentium ipsum quos odit repudiandae dolores recusandae veniam consequatur!</p><br>
+					<label>Categories: </label>
+					<div class="categories">
+						<span class="tag">lorem</span>
+						<span class="tag">lorem ipsum</span>
+						<span class="tag">ipsum</span>
+					</div>
+					<br><br>
+					<p><strong>Suggested action : </strong><span class="solution"> Mail to loremipsum@lorem.ipsum </span></p>
+				</div>
+				<div class="status">
+					<p class="center">
+						<br>
+						<p><strong>PENDING</strong></p>
+						<br>
+						<button class="btn-go">Mark as read</button>
+						<br><br>
+						<button class="btn-go">Take action</button>
+						<br>
+					</p>
+				</div>
+			</li>
+			<li class="grievance grouping">
+				<div class="details">
+					<div class="nametag grouping">
+						<img class="display-img" src="{% static 'img/download.png' %}">
+						<p>Name : <span class="name">Lorem ipsum.</span>
+						<br>Department : <span class="dept">Lorem ipsum dolor.</span>
+						<br>Hostel: <span class="hostel">Lorem ipsum dolor.</span></p>
+					</div>
+					<p class="date">Dated : --/--/----</p><br>
+					<p class="grievance-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis a fuga praesentium ipsum quos odit repudiandae dolores recusandae veniam consequatur!</p><br>
+					<label>Categories: </label>
+					<div class="categories">
+						<span class="tag">lorem</span>
+						<span class="tag">lorem ipsum</span>
+						<span class="tag">ipsum</span>
+					</div>
+					<br><br>
+					<p><strong>Suggested action : </strong><span class="solution"> Mail to loremipsum@lorem.ipsum </span></p>
+				</div>
+				<div class="status">
+					<p class="center">
+						<br>
+						<p><strong>PENDING</strong></p>
+						<br>
+						<button class="btn-go">Mark as read</button>
+						<br><br>
+						<button class="btn-go">Take action</button>
+						<br>
+					</p>
+				</div>
+			</li>
+			<li class="grievance grouping">
+				<div class="details">
+					<div class="nametag grouping">
+						<img class="display-img" src="{% static 'img/download.png' %}">
+						<p>Name : <span class="name">Lorem ipsum.</span>
+						<br>Department : <span class="dept">Lorem ipsum dolor.</span>
+						<br>Hostel: <span class="hostel">Lorem ipsum dolor.</span></p>
+					</div>
+					<p class="date">Dated : --/--/----</p><br>
+					<p class="grievance-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis a fuga praesentium ipsum quos odit repudiandae dolores recusandae veniam consequatur!</p><br>
+					<label>Categories: </label>
+					<div class="categories">
+						<span class="tag">lorem</span>
+						<span class="tag">lorem ipsum</span>
+						<span class="tag">ipsum</span>
+					</div>
+					<br><br>
+					<p><strong>Suggested action : </strong><span class="solution"> Mail to loremipsum@lorem.ipsum </span></p>
+				</div>
+				<div class="status">
+					<p class="center">
+						<br>
+						<p><strong>READ</strong></p>
+						<br>
+						<button class="pressed">Mark as read</button>
+						<br><br>
+						<button class="btn-go">Take action</button>
+						<br>
+					</p>
+				</div>
+			</li>
+		</ul>	
+{% endblock %}

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% block styling %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	{% endblock %}
+	<title>{% block title %} Grieveance Redressal {% endblock %}</title>
+</head>
+<body>
+	{% block navigation %}
+	<nav class="navigation">
+	<p class="brand">GRIEVANCE REDRESSAL</p>
+		<!-- Get code -->
+	</nav>
+	{% endblock %}
+	<div class="container">
+		{% block content %}
+		<nav class="tabs">
+			<ul>
+				<li class="active">Lorem</li>
+				<li>Ipsum</li>
+			</ul>	
+		</nav>
+		<br><br><br>
+		<p class="heading1"> Register new complaint</p>
+		<form action="" method="POST">
+			<span class="inputfield">
+				<label for="cname">Name : </label>
+				<input type="text" name="cname" value="Lorem ipsum dolor.">
+			</span>
+			<span class="inputfield">
+				<label for="dept">Department : </label>
+				<input type="text" name="dept" value="Lorem ipsum.">
+			</span>
+			<span class="inputfield">
+				<label for="hostel">Resident of : </label>
+				<input type="text" name="hostel" value="Lorem ipsum dolor sit.">
+			</span>
+			<span class="inputfield">
+				<label for="grievance">Your grievance : </label><br>
+				<textarea name="grievance" placeholder="Write your grievance here" cols="80" rows="10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus repellat a deserunt est sapiente delectus eos facilis laboriosam id velit unde, dolor quis asperiores repudiandae voluptatem beatae fugit eveniet, pariatur officia natus quaerat assumenda libero tempore odio! Inventore iure, optio!
+				</textarea>
+			</span>
+			<span class="inputfield">
+				<label> Suggested categories : </label>
+				<div class="categories">
+					<span class="tag">lorem</span>
+					<span class="tag">Lorem ipsum</span>
+					<span class="tag">lorem</span>
+					<!-- will be generated using nlp algorithm -->
+				</div>
+			</span>
+			<br><br>
+			<button class="btn-go">Register grievance</button>
+		</form>		
+		{% endblock %}
+	</div>
+
+	{% block scripts %}
+	<script type="text/javascript"></script>
+	{% endblock %}
+</body>
+</html>
